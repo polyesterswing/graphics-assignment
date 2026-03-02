@@ -149,7 +149,7 @@ int main() {
 		
 		{
 
-			ImGui::SetNextWindowSize(ImVec2(320, 100), ImGuiCond_Always);
+			ImGui::SetNextWindowSize(ImVec2(320, 173), ImGuiCond_Always);
 			ImGui::SetNextWindowPos(ImVec2(10, 10), ImGuiCond_Always);
 			ImGui::Begin("Rendering Options", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 			ImGui::Checkbox("Show Wireframe", &show_wireframe);
