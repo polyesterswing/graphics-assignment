@@ -18,6 +18,11 @@ cd graphics-assignment
 make run
 ```
 
+# Controls
+- Left Click drag to orbit
+- Right Click drag to pan
+- Scroll to zoom
+
 # Implemented Features
 ## Core
 - [x] Load a triangle mesh
