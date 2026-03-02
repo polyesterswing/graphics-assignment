@@ -105,9 +105,13 @@ int main() {
 	float max_value = 1.0f;
 	float disp_value = 0.0f;
 	int selected_colormap = 0;
+
+	// https://www.shadertoy.com/view/WlfXRN
 	const char* colormaps[] = {
 		"Viridis",
-		"Jet",
+		"Plasma",
+		"Magma",
+		"Inferno",
 	};
 
 	while (!glfwWindowShouldClose(window)) {

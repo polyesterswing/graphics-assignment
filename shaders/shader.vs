@@ -11,26 +11,6 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
-float hash(vec3 p) {
-    p = fract(p * vec3(127.1, 311.7, 74.7));
-    p += dot(p, p + 19.19);
-    return fract(p.x * p.y * p.z);
-}
-
-float smoothNoise(vec3 p) {
-    vec3 i = floor(p);
-    vec3 f = fract(p);
-    vec3 u = f * f * (3.0 - 2.0 * f); // smoothstep
-
-    return mix(
-        mix(mix(hash(i),             hash(i + vec3(1,0,0)), u.x),
-            mix(hash(i + vec3(0,1,0)), hash(i + vec3(1,1,0)), u.x), u.y),
-        mix(mix(hash(i + vec3(0,0,1)), hash(i + vec3(1,0,1)), u.x),
-            mix(hash(i + vec3(0,1,1)), hash(i + vec3(1,1,1)), u.x), u.y),
-        u.z
-    );
-}
-
 uniform float uDisp;
 
 void main()
