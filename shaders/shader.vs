@@ -31,9 +31,14 @@ float smoothNoise(vec3 p) {
     );
 }
 
+uniform float uDisp;
+
 void main()
 {
-	vec4 world = model * vec4(aPos, 1.0);
+	vec3 disp = vec3(sin(aPos.x), cos(aPos.y), sin(aPos.z));
+	vec3 displaced = aPos + uDisp * disp;
+
+	vec4 world = model * vec4(displaced, 1.0);
 	vWorldPos = world.xyz;
 
 	mat3 normalMatrix = mat3(transpose(inverse(model)));
@@ -42,10 +47,8 @@ void main()
 	gl_Position = projection * view * world;
 
 	float base = sin(world.x) * cos(world.z);
-	float noise = smoothNoise(world.xyz * 2.0) * 0.4;
-	float raw = base + noise;
 
-	vScalar = clamp((raw + 1.4) / 2.8, 0.0, 1.0);
+	vScalar = (base + 1.0) * 0.5;
 
 	vec3 bary = vec3(0.0);
 	bary[gl_VertexID % 3] = 1.0;

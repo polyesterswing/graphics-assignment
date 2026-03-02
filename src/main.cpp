@@ -103,6 +103,7 @@ int main() {
 	float isoline_value = 0.0f;
 	float min_value = 0.0f;
 	float max_value = 1.0f;
+	float disp_value = 0.0f;
 	int selected_colormap = 0;
 	const char* colormaps[] = {
 		"Viridis",
@@ -128,6 +129,7 @@ int main() {
 		ourShader.setFloat("uMaxVal", max_value);
 		ourShader.setFloat("uShowIsoline", show_isoline);
 		ourShader.setFloat("uIsoline", isoline_value);
+		ourShader.setFloat("uDisp", disp_value);
 
 		glBindVertexArray(VAO);
 
@@ -162,6 +164,7 @@ int main() {
 				);
 
 			ImGui::SliderFloat("Isoline", &isoline_value, 0.0f, 1.0f);
+			ImGui::SliderFloat("Displacement", &disp_value, 0.0f, 1.0f);
 
 			ImGui::End();
 		}
